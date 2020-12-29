@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "134036621872",
+    "firebase_url": "https://smart-saline-bottle-default-rtdb.firebaseio.com",
+    "project_id": "smart-saline-bottle",
+    "storage_bucket": "smart-saline-bottle.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:134036621872:android:a8f8bd9e13ee3b05933bf5",
+        "android_client_info": {
+          "package_name": "com.example.smartsallinebottle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "134036621872-92492qiqepvpeo6ljgojqqqnu1ik2dlf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOErJzEsep6QOs9n8RW_L65_3q45qHv1g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "134036621872-92492qiqepvpeo6ljgojqqqnu1ik2dlf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
