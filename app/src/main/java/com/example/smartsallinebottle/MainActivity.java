@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 
 import gr.net.maroulis.library.EasySplashScreen;
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         EasySplashScreen config =new EasySplashScreen(MainActivity.this)
                 .withFullScreen()
                 .withTargetActivity(LoginActivity.class)
-                .withSplashTimeOut(4000)
+                .withSplashTimeOut(2000)
                 .withBackgroundColor(Color.parseColor("#1a1b29"))
                 .withHeaderText("Team 4")
                 .withFooterText("Copyright 2020")
@@ -39,4 +40,5 @@ public class MainActivity extends AppCompatActivity {
         setContentView(easysplash);
 
     }
+
 }

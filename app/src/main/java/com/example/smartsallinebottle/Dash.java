@@ -3,7 +3,10 @@ package com.example.smartsallinebottle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.webkit.WebView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -14,6 +17,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,7 +29,8 @@ import java.util.Calendar;
 public class Dash extends AppCompatActivity {
     SwipeRefreshLayout refreshLayout;
     public RequestQueue mQueue;
-
+    private FirebaseAuth mAuth;
+    private FirebaseUser cur_user;
     Calendar cal=Calendar.getInstance();
     private ProgressBar pgsBar;
     int bottle=539;
@@ -33,6 +39,8 @@ public class Dash extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash);
+        mAuth = FirebaseAuth.getInstance();
+        cur_user = mAuth.getCurrentUser();
         WebView webView = (WebView) findViewById(R.id.grp);
         WebView webView1 = (WebView) findViewById(R.id.grp1);
         webView.getSettings().setJavaScriptEnabled(true);
@@ -88,5 +96,29 @@ public class Dash extends AppCompatActivity {
             }
         });
 mQueue.add(request);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.dashboard, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        if (id == R.id.donateinfo) {
+            mAuth.signOut();
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+        }
+
+
+        return super.onOptionsItemSelected(item);
     }
 }
